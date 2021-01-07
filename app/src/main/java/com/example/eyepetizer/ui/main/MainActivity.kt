@@ -10,6 +10,7 @@ import com.example.eyepetizer.app.AppViewModelFactory
 import com.example.eyepetizer.databinding.ActivityMainBinding
 import com.example.eyepetizer.utils.immersionStatusBar
 import me.goldze.mvvmhabit.base.BaseActivity
+import me.yokeyword.fragmentation.SupportActivityDelegate
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
@@ -35,8 +36,12 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     }
 
     private fun initBottomNavigation() {
-        //去掉底部默认选中背景
-        binding.mBottomNavigationView.itemIconTintList = null
+        binding.mBottomNavigationView.run {
+            //去掉底部默认选中背景
+            itemIconTintList = null
+            selectedItemId = R.menu.home_menu_bottom_navigation.ite
+        }
+
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
